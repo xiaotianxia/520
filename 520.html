@@ -38,7 +38,7 @@
          init: function(elem) {
             this.elem = elem;
             this.container = jq('.js-container');
-            var text = decodeURI(this.getUrlParam('text'), 'UTF-8');
+            var text = decodeURI(this.getUrlParam()['text']);
             console.log(text);
             this.renderText(text);
          },
@@ -47,11 +47,13 @@
             this.container.html(text);
          },
 
-         getUrlParam: function(name) {
-            var reg= new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-            var r = window.location.search.substr(1).match(reg);
-            if (r!=null) return unescape(r[2]); 
-               return null;
+         getUrlParam: function(href) {
+            var href = href || window.location.search;
+            var data = {},reg = new RegExp( "([^?=&]+)(=([^&]*))?", "g" );
+            href && href.replace(reg,function( $0, $1, $2, $3 ){
+                data[ $1 ] = $3;
+            });
+            return data;
          }
       };
       demo.init(jq('.js-container'));
