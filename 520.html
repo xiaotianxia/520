@@ -38,7 +38,8 @@
          init: function(elem) {
             this.elem = elem;
             this.container = jq('.js-container');
-            var text = decodeURIComponent(this.getUrlParam('text'));
+            var text = decodeURI(this.getUrlParam('text'), 'UTF-8');
+            console.log(text);
             this.renderText(text);
          },
 

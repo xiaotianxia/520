@@ -89,7 +89,7 @@
          },
 
          onGenerate: function() {
-            var text = encodeURIComponent(jq.trim(this.text.val())),
+            var text = encodeURI(jq.trim(this.text.val())),
                 url = 'http://xiaotianxia.github.io/520/520?text=' + text;
             this.text.removeClass('error');
             if(!text) {
