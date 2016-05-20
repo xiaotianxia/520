@@ -7,11 +7,25 @@
    <script src="http://img1.cache.netease.com/bobo/sp/jquery-1.8.3.min.js"></script>
    <script type="text/javascript" src="http://img3.cache.netease.com/bobo/image/active/supergirl_personalInfo/jquery.qrcode.min.js"></script>
 <style>
-   .container {
-      text-align: center;
-      padding-top: 20px;
+   * {
+      margin: 0;
+      padding: 0;
    }
-   
+   .container {
+      font-size: 40px;
+      color: red;
+      padding: 10px;
+   }
+   .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      border: 1px dashed #ccc;
+      padding: 20px;
+      margin: 10px;
+   }
 </style>
 </head>
 <body>
@@ -24,13 +38,12 @@
          init: function(elem) {
             this.elem = elem;
             this.container = jq('.js-container');
-            var text = this.getUrlParam('text');
+            var text = decodeURIComponent(this.getUrlParam('text'));
             this.renderText(text);
-            this.bindEvents();
          },
 
          renderText: function(text) {
-            this.container.html('<p>' + text + '<p>');
+            this.container.html('<p class="text">' + text + '</p>');
          },
 
          getUrlParam: function(name) {
@@ -38,10 +51,6 @@
             var r = window.location.search.substr(1).match(reg);
             if (r!=null) return unescape(r[2]); 
                return null;
-         },
-
-         bindEvents: function() {
-           
          }
       };
       demo.init(jq('.js-container'));

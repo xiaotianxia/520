@@ -7,6 +7,10 @@
    <script src="http://img1.cache.netease.com/bobo/sp/jquery-1.8.3.min.js"></script>
    <script type="text/javascript" src="http://img3.cache.netease.com/bobo/image/active/supergirl_personalInfo/jquery.qrcode.min.js"></script>
 <style>
+   * {
+      margin: 0;
+      padding: 0;
+   }
    .container {
       text-align: center;
       padding-top: 20px;
@@ -72,11 +76,15 @@
          },
 
          onGenerate: function() {
-            var text = jq.trim(this.text.val()),
+            var text = encodeURIComponent(jq.trim(this.text.val())),
                 url = 'http://xiaotianxia.github.io/520/520?text=' + text;
             this.text.removeClass('error');
             if(!text) {
                this.text.addClass('error');
+               return;
+            }
+            if(text.length > 200) {
+               alert('说太多了。。。')
                return;
             }
             this.qrWrapper.html('');
