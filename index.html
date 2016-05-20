@@ -33,16 +33,19 @@
       color: #000;
    }
    .qr-wrapper {
-      margin: 10px auto;
+      margin: 50px auto;
       width: 200px;
       height: 200px;
       border: 1px solid #eee;
+   }
+   .error {
+      border: 1px solid red;
    }
 </style>
 </head>
 <body>
    <div class="container js-container">
-      <input class="text-input js-text" type="text" placeholder="文字" value=""> <br>
+      <input class="text-input js-text text-trigger" type="text" placeholder="文字" value=""> <br>
       <a class="generate-btn generate-tigger" href="javascript:;" title="生成">生成</a>
       <div class="qr-wrapper js-qr">
          
@@ -61,12 +64,21 @@
 
          bindEvents: function() {
             this.elem.delegate('.generate-tigger', 'click', jq.proxy(this.onGenerate, this));
+            this.elem.delegate('.text-trigger', 'input blur focus', jq.proxy(this.onText, this));
+         },
+
+         onText: function() {
+            this.text.removeClass('error');
          },
 
          onGenerate: function() {
-            console.log(1111);
             var text = jq.trim(this.text.val()),
-                url = 'http://www.baidu.com&text=' + text;
+                url = 'http://xiaotianxia.github.io/520?text=' + text;
+            this.text.removeClass('error');
+            if(!text) {
+               this.text.addClass('error');
+               return;
+            }
             this.qrWrapper.html('');
             this.qrWrapper.qrcode({
                width: 200,

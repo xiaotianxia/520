@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>test</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+   <script src="http://img1.cache.netease.com/bobo/sp/jquery-1.8.3.min.js"></script>
+   <script type="text/javascript" src="http://img3.cache.netease.com/bobo/image/active/supergirl_personalInfo/jquery.qrcode.min.js"></script>
+<style>
+   .container {
+      text-align: center;
+      padding-top: 20px;
+   }
+   
+</style>
+</head>
+<body>
+   <div class="container js-container">
+      
+   </div>
+<script>
+    (function(jq) {
+      var demo = {
+         init: function(elem) {
+            this.elem = elem;
+            this.container = jq('.js-container');
+            var text = this.getUrlParam('text');
+            this.renderText(text);
+            this.bindEvents();
+         },
+
+         renderText: function(text) {
+            this.container.html('<p>' + text + '<p>');
+         },
+
+         getUrlParam: function(name) {
+            var reg= new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r!=null) return unescape(r[2]); 
+               return null;
+         },
+
+         bindEvents: function() {
+           
+         }
+      };
+      demo.init(jq('.js-container'));
+    })(jQuery)
+</script>
+</body>
+</html>
