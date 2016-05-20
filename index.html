@@ -8,22 +8,41 @@
    <script type="text/javascript" src="http://img3.cache.netease.com/bobo/image/active/supergirl_personalInfo/jquery.qrcode.min.js"></script>
 <style>
    .container {
-
+      text-align: center;
+      padding-top: 20px;
+   }
+   .text-input, .generate-btn {
+      margin-top: 20px;
+      width: 90%;
+      height: 40px;
+      border-radius: 10px;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
    }
    .text-input {
-
+      padding-left: 10px;
+      outline: none;
+      border: 1px solid #aaa;
    }
    .generate-btn {
-
+      display: inline-block;
+      background: #ccc;
+      text-decoration: none;
+      font-size: 30px;
+      color: #000;
    }
    .qr-wrapper {
-
+      margin: 10px auto;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #eee;
    }
 </style>
 </head>
 <body>
    <div class="container js-container">
-      <input class="text-input js-text" type="text" name="" value="">
+      <input class="text-input js-text" type="text" placeholder="文字" value=""> <br>
       <a class="generate-btn generate-tigger" href="javascript:;" title="生成">生成</a>
       <div class="qr-wrapper js-qr">
          
@@ -48,9 +67,10 @@
             console.log(1111);
             var text = jq.trim(this.text.val()),
                 url = 'http://www.baidu.com&text=' + text;
+            this.qrWrapper.html('');
             this.qrWrapper.qrcode({
-               width: 120,
-               height: 120,
+               width: 200,
+               height: 200,
                text: url
             });
          }
