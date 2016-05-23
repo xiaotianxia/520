@@ -104,6 +104,7 @@
             this.qrWrapper.qrcode({
                width: 300,
                height: 300,
+               typeNumber: -1,
                text: url
             });
             var canvas = this.qrWrapper.find('canvas');
@@ -115,7 +116,7 @@
                'left': '50%',
                '-webkit-transform': 'translate(-50%, -50%)',
                'transform': 'translate(-50%, -50%)'
-            })
+            });
             this.qrWrapper.html(img);
             this.qrWrapper.show();
          }
