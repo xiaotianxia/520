@@ -24,6 +24,54 @@
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
    }
+   .container:before {
+      -webkit-animation: pulse 1.4s infinite;
+      animation: pulse 1.4s infinite;
+      background-size: 16px 16px;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAD8UlEQVR4AcWXA+wkWRDG56zobNsO1ra9w7/t/9q2bdu2bdu2ovPd77quJ+nZvq70zjHJl2ZVfa9e6Xkqpeb+r1A/0G/iB0ycX5Zdh4IMnFSRFj0/vVelNOv2BQMmVBVZGncvwfBp70RFgInzitK2fzea9phD52Ebye20gAZd+rB2a1lX40vWVSO7wwBDZgldDdnE5tPpOKQTyzd+60qAzfs+o3mPVdTMgBoGKiZBiSBUSYY6WVAtFfI7r2Dlls/tith3qCjZ7TdTNRXqZEPVFCgZhNpZUCPdvLbpO5vFq99wJMCmHXWolfErJQJQLwd8+X9G3WxDacj4nvsTm/dWsVa9PiiGKR0DdcOy3jwTcu9vYBIoFycLuWOQLX0XATbs/oKKiVAhAQINLQU+gY2EKBNFVVLgNI9y8eIzlItH5Ak0sIxaVwv+fCgfj+HhXzh9+g2LQE7H45SKEeWRgnZlFiExVD4BmvXaRcOuB+RelDvKWc+WbDE/tOy99Q8CrNlaXfaK+rmRxgQ2Ag6KKifLXkd6TeBsOPK7xIjIrtte0EP34bMoFdLZq0qNa30nQw4eFNgXILHWd+wQw/3t90qUWgI6CdWtXsWo7g0zw1r1Xe3B3+CKKqgrdVpVdGQlK9JaH/IYSq7iVaLeG6nYdrVnh0ZW80btTEhtddhDeusj1MqUl0rg2aCu2D0AI64ShJJFGz10Gz5XUlB1r2ZQNW6H4hEpaL3HDPUwbmaWVDDzZz2orG8qMUVOeSfpO35OLQ9bD7xAoMGvVE93qnwuEe/yr/ZNMiC5xXXgMbMSDpo4mqI+qWa6J+yK3N2tx1URL0xZ0MIqxWfPvkSNjJ+okupmxKZcDThHmH0kXqL/CvDo3d1w5pIGFA9EpKMTe7tyzf1KrEgJLu6HtdurOs8Djbuvkkbh2BHtq9RLr160ZJuHTBqhDyTnzj1FbJPrlLZ1RoH7HusxE2hgDjYpLbe6jmScufQR1dO+l72y9/eoan7kMCLdNqn5RVngvc2E+48UpFraL0JCFJgKHVu101bZjIcg2OAKl269Ht1UvPtwcWplfU/ZuDAJA3qOO/cPkU1sdo4L19+PeiwXcPLct4aCi7IKGViEiGveyz/yr5T3+Ka7uXjrtajOBXawefPzNOi0RFJUmpYYsPLfFnj+8OAqw0aHgfOZt+Px6A8mCpi5tAOSHeXDg6s94IRY5RTT+KgZff/2yUg5dFQisdnN8JaIcat8CzG5Dhof948czTRw/vwrRsFaSqUkKBMLMk8KUlsf4NKlr/+xs6EbGD0jQLsBy2neewPDp3Vkz54n5P1/R2DHjodYvqEmKzcG2HngnX/mdPw/4HetigW+za3sEwAAAABJRU5ErkJggg==);
+      content: '';
+      display: block;
+      height: 16px;
+      left: 50%;
+      margin-left: -8px;
+      position: absolute;
+      top: -20px;
+      width: 16px;
+   }
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1,1,1);
+        transform: scale3d(1,1,1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05,1.05,1.05);
+        transform: scale3d(1.05,1.05,1.05)
+    }
+
+    100% {
+        -webkit-transform: scale3d(1,1,1);
+        transform: scale3d(1,1,1)
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1,1,1);
+        transform: scale3d(1,1,1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05,1.05,1.05);
+        transform: scale3d(1.05,1.05,1.05)
+    }
+
+    100% {
+        -webkit-transform: scale3d(1,1,1);
+        transform: scale3d(1,1,1)
+    }
+}
+
 </style>
 </head>
 <body>
